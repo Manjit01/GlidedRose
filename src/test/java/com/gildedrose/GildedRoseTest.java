@@ -37,5 +37,10 @@ class GildedRoseTest {
       Item item = createAndUpdate(0, 0);
         assertEquals(0, item.quality);
     }
+    @Test
+    void agedBrieIncreasesInQuality(){
+        Item item = createAndUpdate(15, 25);
+        assertEquals(26, item.quality);
+    }
     }
 
