@@ -42,5 +42,17 @@ class GildedRoseTest {
         Item item = createAndUpdate("Aged Brie", 15, 25);
         assertEquals(26, item.quality);
     }
+
+    @Test
+    void qualityNeverMoreThan50() {
+        Item item = createAndUpdate("foo", 15, 52);
+        assertEquals(51, item.quality); //can exceed 50 if input exceeds 50
+
+        item = createAndUpdate("Aged Brie", 15, 50);
+        assertEquals(50, item.quality);
+
+    }
+
+
     }
 
