@@ -8,10 +8,15 @@ class GildedRoseTest {
 
     @Test
     void testFrameworkWorks() {
-        Item[] items = new Item[]{new Item("foo", 0, 0)};
+        Item item = createAndUpdate(0, 0);
+        assertEquals("foo", item.name);
+    }
+
+    private Item createAndUpdate(int sellIn, int quality) {
+        Item[] items = new Item[]{new Item("foo", sellIn, quality)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("foo", app.items[0].name);
+        return items[0];
     }
 
     @Test
